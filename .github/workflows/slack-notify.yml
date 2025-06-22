@@ -1,0 +1,35 @@
+name: Slack Notification
+on:
+  workflow_call:
+    inputs:
+      status:
+        required: true
+        type: string
+      message:
+        required: false
+        type: string
+      color:
+        required: true
+        type: string
+    secrets:
+      SLACK_WEBHOOK_URL:
+        required: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Slack notification
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "${{ inputs.color }}",
+                  "text": "${{ inputs.status }}: ${{ inputs.message }}"
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

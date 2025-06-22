@@ -1,0 +1,11 @@
+{
+  "name": "profile-site-beanstalk-deploy",
+  "version": "1.0.0",
+  "description": "A static profile site deployed to AWS Elastic Beanstalk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "author": "",
+  "license": "MIT"
+}

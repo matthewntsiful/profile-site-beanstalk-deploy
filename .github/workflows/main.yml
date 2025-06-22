@@ -1,0 +1,86 @@
+name: Deploy to Elastic Beanstalk
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  AWS_APP_NAME: profile-site-app
+  AWS_ENV_NAME: Profile-site-env
+
+jobs:
+  deploy:
+    name: Deploy to Elastic Beanstalk
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Zip application files
+        run: |
+          zip -r application.zip . \
+            -x "*.git*" \
+            -x "node_modules/*" \
+            -x "*.md" \
+            -x ".github/*"
+
+      - name: Deploy to Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v22
+        with:
+          region: ${{ secrets.AWS_REGION }}
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ env.AWS_APP_NAME }}
+          environment_name: ${{ env.AWS_ENV_NAME }}
+          version_label: v-${{ github.run_number }}
+          existing_bucket_name: ${{ secrets.EB_BUCKET_NAME }}
+          deployment_package: application.zip
+
+  slack_success:
+    needs: deploy
+    if: ${{ needs.deploy.result == 'success' && secrets.SLACK_WEBHOOK_URL != '' }}
+    uses: ./.github/workflows/slack-notify.yml
+    with:
+      status: "Deployment Succeeded"
+      message: "The Elastic Beanstalk deployment completed successfully."
+      color: "good"
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  slack_failure:
+    needs: deploy
+    if: ${{ needs.deploy.result == 'failure' && secrets.SLACK_WEBHOOK_URL != '' }}
+    uses: ./.github/workflows/slack-notify.yml
+    with:
+      status: "Deployment Failed"
+      message: "The Elastic Beanstalk deployment failed."
+      color: "danger"
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  slack_cancelled:
+    needs: deploy
+    if: ${{ needs.deploy.result == 'cancelled' && secrets.SLACK_WEBHOOK_URL != '' }}
+    uses: ./.github/workflows/slack-notify.yml
+    with:
+      status: "Deployment Cancelled"
+      message: "The Elastic Beanstalk deployment was cancelled."
+      color: "warning"
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
