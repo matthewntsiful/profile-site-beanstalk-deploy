@@ -279,15 +279,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Snyk** for security vulnerability scanning
 - **Open Source Community** for amazing tools and libraries
 
-## 📊 Project Stats
-
-![GitHub repo size](https://img.shields.io/github/repo-size/YOUR_USERNAME/profile-site-beanstalk-deploy)
-![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/profile-site-beanstalk-deploy)
-![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/profile-site-beanstalk-deploy)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/YOUR_USERNAME/profile-site-beanstalk-deploy)
-
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
+**Powered by [Blakk Brother Inc](https://blakkbrother.com)**
 
 Built with ❤️ using modern web technologies and deployed on AWS.
