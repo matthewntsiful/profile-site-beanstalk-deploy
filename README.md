@@ -252,9 +252,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Matthew Odoom Ntsiful**
 - 🌐 Website: [http://Profile-site-app-env.eba-vnkknerx.eu-north-1.elasticbeanstalk.com](http://Profile-site-app-env.eba-vnkknerx.eu-north-1.elasticbeanstalk.com)
-- 💼 LinkedIn: [matthew-ntsiful](https://linkedin.com/in/matthew-ntsiful)
-- 🐙 GitHub: [matthew-ntsiful](https://github.com/matthew-ntsiful)
-- 📧 Email: matthew@example.com
+- 💼 LinkedIn: [matthew-ntsiful](https://linkedin.com/in/matthewntsiful)
+- 🐙 GitHub: [matthew-ntsiful](https://github.com/matthewntsiful)
+- 📧 Email: matthew.ntsiful@gmail.com
 
 ## 🙏 Acknowledgments
 
