@@ -72,21 +72,21 @@ A modern, responsive professional profile website showcasing cloud infrastructur
 
 ```
 profile-site-beanstalk-deploy/
-├── 📄 index.html              # Main homepage
-├── 📄 projects.html           # Projects showcase
-├── 📄 blog.html              # Technical blog
-├── 🎨 styles.css             # Custom CSS styles
-├── 📁 js/
-│   ├── theme-toggle.js       # Theme switching functionality
-│   └── scroll-animations.js  # Scroll animations and interactions
-├── 📁 .github/
+├── index.php              # Main homepage
+├── projects.php           # Projects showcase
+├── blog.php               # Technical blog
+├── styles.css             # Custom CSS styles
+├── js/
+│   ├── theme-toggle.js    # Theme switching functionality
+│   └── scroll-animations.js # Scroll animations and interactions
+├── .github/
 │   └── workflows/
 │       ├── main.yml          # CI/CD pipeline
 │       └── slack-notify.yml  # Slack notifications
-├── 📁 .ebextensions/         # Elastic Beanstalk configuration
-├── 🖼️ profile.jpg            # Profile image
-├── 📦 package.json           # Node.js dependencies
-└── 📖 README.md              # Project documentation
+├── .ebextensions/         # Elastic Beanstalk configuration
+├── profile.jpg            # Profile image
+├── composer.json          # PHP dependencies
+├── README.md              # Project documentation
 ```
 
 ## 🚀 Deployment Pipeline
@@ -100,7 +100,7 @@ Trigger: Push to main branch
 ├── 3. Security scan with Snyk
 ├── 4. Package application
 ├── 5. Deploy to Elastic Beanstalk
-└── 6. Send Slack notifications
+└── 6. (Optional) Send Slack notifications
 ```
 
 ### Deployment Features
@@ -108,12 +108,12 @@ Trigger: Push to main branch
 - **Zero Downtime**: Rolling deployments
 - **Version Control**: Unique version labels for each deployment
 - **Rollback Capability**: Easy rollback to previous versions
-- **Notifications**: Slack integration for deployment status
+- **Notifications**: Slack integration for deployment status (optional)
 
 ## 🔧 Local Development
 
 ### Prerequisites
-- Node.js 18+ (for package management)
+- PHP 8+ (for local server)
 - Git
 - Modern web browser
 
@@ -123,31 +123,17 @@ Trigger: Push to main branch
 git clone https://github.com/YOUR_USERNAME/profile-site-beanstalk-deploy.git
 cd profile-site-beanstalk-deploy
 
-# Install dependencies (optional)
-npm install
+# Start PHP local server
+php -S localhost:8000
 
 # Open in browser
-open index.html
-# Or use a local server
-npx serve .
-```
-
-### Development Commands
-```bash
-# Start local development server
-npm start
-
-# Run security scan
-npm run security-check
-
-# Build for production
-npm run build
+open http://localhost:8000
 ```
 
 ## 🌐 AWS Infrastructure
 
 ### Elastic Beanstalk Configuration
-- **Platform**: Node.js 18 on Amazon Linux 2
+- **Platform**: PHP 8.x on Amazon Linux 2
 - **Instance Type**: t3.micro (Free Tier eligible)
 - **Auto Scaling**: Single instance (can be scaled)
 - **Load Balancer**: Application Load Balancer (optional)
@@ -198,8 +184,7 @@ npm run build
 3. **Make your changes**
 4. **Run tests and security checks**
    ```bash
-   npm run test
-   npm run security-check
+   # (Add PHP test or security commands here if needed)
    ```
 5. **Commit your changes**
    ```bash
