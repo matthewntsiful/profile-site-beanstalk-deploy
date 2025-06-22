@@ -1,3 +1,5 @@
+// This file is a client-side JS file. No PHP tags needed.
+
 // Scroll animations and smooth scrolling functionality
 (function() {
   'use strict';

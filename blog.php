@@ -1,0 +1,3 @@
+<?php include_once('header.php'); ?>
+// ...existing HTML content...
+<?php include_once('footer.php'); ?>
