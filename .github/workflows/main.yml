@@ -54,7 +54,7 @@ jobs:
 
   slack_success:
     needs: deploy
-    if: ${{ needs.deploy.result == 'success' && secrets.SLACK_WEBHOOK_URL != '' }}
+    if: ${{ needs.deploy.result == 'success' && vars.SLACK_WEBHOOK_URL != '' }}
     uses: ./.github/workflows/slack-notify.yml
     with:
       status: "Deployment Succeeded"
@@ -65,7 +65,7 @@ jobs:
 
   slack_failure:
     needs: deploy
-    if: ${{ needs.deploy.result == 'failure' && secrets.SLACK_WEBHOOK_URL != '' }}
+    if: ${{ needs.deploy.result == 'failure' && vars.SLACK_WEBHOOK_URL != '' }}
     uses: ./.github/workflows/slack-notify.yml
     with:
       status: "Deployment Failed"
@@ -76,7 +76,7 @@ jobs:
 
   slack_cancelled:
     needs: deploy
-    if: ${{ needs.deploy.result == 'cancelled' && secrets.SLACK_WEBHOOK_URL != '' }}
+    if: ${{ needs.deploy.result == 'cancelled' && vars.SLACK_WEBHOOK_URL != '' }}
     uses: ./.github/workflows/slack-notify.yml
     with:
       status: "Deployment Cancelled"
