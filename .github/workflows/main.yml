@@ -3,13 +3,25 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**.html'
+      - '**.css'
+      - '**.js'
+      - 'package.json'
+      - '.github/workflows/**'
   pull_request:
     branches:
       - main
+    paths:
+      - '**.html'
+      - '**.css'
+      - '**.js'
+      - 'package.json'
+      - '.github/workflows/**'
 
 env:
   AWS_APP_NAME: profile-site-app
-  AWS_ENV_NAME: Profile-site-env
+  AWS_ENV_NAME: Profile-site-app-env
 
 jobs:
   deploy:
