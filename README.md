@@ -1,6 +1,6 @@
 # 🚀 Professional Profile Website
 
-[![Deployment Status](https://github.com/username/profile-site-beanstalk-deploy/workflows/Deploy%20to%20Elastic%20Beanstalk/badge.svg)](https://github.com/username/profile-site-beanstalk-deploy/actions)
+[![Deployment Status](https://img.shields.io/badge/Deployment-Success-brightgreen?style=flat&logo=github-actions)](https://github.com/YOUR_USERNAME/profile-site-beanstalk-deploy/actions)
 [![AWS](https://img.shields.io/badge/AWS-Elastic%20Beanstalk-FF9900?style=flat&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/elasticbeanstalk/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -120,7 +120,7 @@ Trigger: Push to main branch
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/username/profile-site-beanstalk-deploy.git
+git clone https://github.com/YOUR_USERNAME/profile-site-beanstalk-deploy.git
 cd profile-site-beanstalk-deploy
 
 # Install dependencies (optional)
@@ -281,10 +281,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📊 Project Stats
 
-![GitHub repo size](https://img.shields.io/github/repo-size/username/profile-site-beanstalk-deploy)
-![GitHub last commit](https://img.shields.io/github/last-commit/username/profile-site-beanstalk-deploy)
-![GitHub issues](https://img.shields.io/github/issues/username/profile-site-beanstalk-deploy)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/username/profile-site-beanstalk-deploy)
+![GitHub repo size](https://img.shields.io/github/repo-size/YOUR_USERNAME/profile-site-beanstalk-deploy)
+![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/profile-site-beanstalk-deploy)
+![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/profile-site-beanstalk-deploy)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/YOUR_USERNAME/profile-site-beanstalk-deploy)
 
 ---
 
