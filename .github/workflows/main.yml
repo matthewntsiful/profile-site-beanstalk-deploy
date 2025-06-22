@@ -74,16 +74,15 @@ jobs:
           existing_bucket_name: ${{ secrets.EB_BUCKET_NAME }}
           deployment_package: application.zip
 
-  slack_notification:
-    name: Slack Notification
-    needs: [deploy]
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - name: Send Slack notification
-        uses: ./.github/workflows/slack-notify.yml
-        with:
-          status: ${{ job.status }}
-          environment: ${{ env.AWS_ENV_NAME }}
-          app_name: ${{ env.AWS_APP_NAME }}
-###
+#  slack_notification:
+#    name: Slack Notification
+#    needs: [deploy]
+#    runs-on: ubuntu-latest
+#    if: always()
+#    steps:
+#      - name: Send Slack notification
+#        uses: ./.github/workflows/slack-notify.yml
+#        with:
+#          status: ${{ job.status }}
+#          environment: ${{ env.AWS_ENV_NAME }}
+#          app_name: ${{ env.AWS_APP_NAME }}
